@@ -1,5 +1,5 @@
 # OSCE-Timer
-Timer for medical student OSCE exams
+Timer for UK medical student mock OSCE exams. Written in Python 3.
 
 There are two versions:
 One with pre-set timers, one with customiseable timers.
@@ -10,8 +10,6 @@ Four-station loop:
   2. Station (12 minutes)
   3. Feedback (3 minutes)
   
-The customiseable one gets input for prep/station/feedback/stations and then runs the same loop.
-
-Written in Python 3.
+The customiseable timer gets input for prep/station/feedback/stations and then runs the same loop.
 
 I intend to add a pause function and perhaps a better restart function at some point.
