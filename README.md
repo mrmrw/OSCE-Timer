@@ -12,4 +12,7 @@ Four-station loop:
   
 The customiseable timer gets input for prep/station/feedback/stations and then runs the same loop.
 
+After each stage, a sound (bell before prep and station, gong before feedback) plays before the countdown starts. Sounds have been downloaded from soundbible.com.
+
+Future plans:
 I intend to add a pause function and perhaps a better restart function at some point.
