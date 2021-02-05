@@ -18,19 +18,33 @@ def get_int(x):
 
 def setup():    
     print("Input time in seconds as required.")
-    print("As a guide: 60 seconds = 1 minute, 120 = 2 mins; 180 = 3 mins; 720 = 12 mins")
+    print("As a guide: 60 seconds = 1 minute, 120 = 2 mins; 180 = 3 mins; 720 = 12 mins.")
+    print("Minimum time for each is 30 seconds.")
 
     prep = get_int(input("Enter preparation time in seconds: "))
     station = get_int(input("Enter station time in seconds: "))
     feedback = get_int(input("Enter feedback time in seconds: "))
     num_stations = get_int(input("Enter number of stations: "))
-    
+
+    if num_stations < 1:
+        print("There will be one station - this is the minimum.")
+        num_stations = 1
+
+#Setting minimums
+    if prep < 30:
+        prep = 30
+    if station < 30:
+        station = 30
+    if feedback < 30:
+        feedback = 30
+
     print(f"Your timings are as follows: preparation will be {prep} seconds, stations are {station} seconds, and feedback is {feedback} seconds")
     print(f"There will be {num_stations} stations.")
 
+    #Remove 5 seconds off each to accout for slight delay after sound is played.
     prep -= 5
     station -= 5
-    feedback -= 5
+    feedback -=5
 
     return prep, station, feedback, num_stations
 
@@ -49,14 +63,14 @@ def loop(num_stations):
     num_stations += 1
     for i in range(1,num_stations):
         print("Rotation number " + str(i))
+        print(f"Start preparation: {prep + 5} seconds")
         playsound('Bell.wav')
-        print(f"Start preparation: {prep} seconds")
         countdown(prep)
+        print(f"Move on to station: {prep + 5} seconds")
         playsound('Bell.wav')
-        print(f"Move on to station: {prep} seconds")
         countdown(station)
+        print(f"Feedback time {feedback + 5} seconds")
         playsound('fbkgong.wav')
-        print(f"Feedback time {feedback} seconds")
         countdown(feedback)
     playsound('Bell.wav')
     print("This was the last station. Well done!")
